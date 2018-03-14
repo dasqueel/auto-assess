@@ -16,13 +16,16 @@
     "moment": "^2.21.0",
     "mongoose": "^5.0.9",
     "natural": "^0.5.6",
+    "node-webvtt": "^1.0.3",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0",
     "shell": "^0.5.0",
     "shelljs": "^0.8.1",
     "stopwords": "^0.0.9",
-    "subtitles-parser": "^0.0.2"
+    "subtitles-parser": "^0.0.2",
+    "vtt-to-srt": "^0.1.0",
+    "youtube-dl": "^1.12.2"
   },
   "devDependencies": {
     "nodemon": "^1.17.1"
