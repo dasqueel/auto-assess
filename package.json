@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.21.0",
+    "mongoose": "^5.0.9",
+    "natural": "^0.5.6",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "shell": "^0.5.0",
+    "shelljs": "^0.8.1",
+    "stopwords": "^0.0.9",
+    "subtitles-parser": "^0.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  }
+}
