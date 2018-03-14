@@ -21,5 +21,5 @@ module.exports = (app) => {
 		.post(authController.requireAuth, youtubeAssessorController.assessVid);
 
 	app.route(`${apiPrefix}/test`)
-		.get(authController.requireAuth, (req, res) => res.send("yoooo"));
+		.get((req, res) => res.send("yoooo"));
 };
