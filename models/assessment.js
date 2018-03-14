@@ -1,7 +1,3 @@
-/*
-	Todo:
-	change key name of, validWordsUsed to validWordsSaid
-*/
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

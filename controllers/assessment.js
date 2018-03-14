@@ -14,7 +14,6 @@ const sendUserError = (err, res) => {
     }
 };
 
-
 const getUserAssessments = (req, res) => {
 	const user = req.session.user;
     Assessment.find({ owner: new ObjectId(user._id) })
