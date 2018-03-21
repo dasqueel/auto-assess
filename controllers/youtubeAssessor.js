@@ -167,7 +167,11 @@ const assessVid = (req, res) => {
 							wordCount
 						})
 						newAssessment.save()
-							.then(doc => res.json(doc))
+							// .then(doc => res.json(doc))
+							.then(doc => {
+								res.header("Content-Type", 'application/json');
+								res.send(JSON.stringify(doc, null, 4));
+							})
 							.catch(err => res.status(422).json(err))
 					})
 					.catch(err => {
