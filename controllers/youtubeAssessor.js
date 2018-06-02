@@ -23,6 +23,28 @@ overall goals
 // return score
 */
 
+// helper function to build a raw transciption string with no repeating lines
+// sometimes youtube sends a vtt transcription with repeating lines, for whatever reason
+const removeRepeatedLines = srtDataArr => {
+	let curLine = srtDataArr[0].text;
+	let indicesToKeep = [0];
+
+	for (let i = 1; i < srtDataArr.length; i++) {
+		let newLine = srtDataArr[i].text;
+		if (!newLine.includes(curLine) && newLine !== '') {
+			// add new incide
+			indicesToKeep.push(i);
+			// update curLine
+			curLine = newLine;
+		}
+	}
+
+	// build the final transcript and return
+	return indicesToKeep.reduce((memo, i) => {
+		return `${memo} ${srtDataArr[i].text}`
+	}, '')
+}
+
 async function transcribeYoutube(vidId) {
 	let transcribedObj = await new Promise(function (resolve, reject) {
 		AcceptedAssessment.findOne({ vidId })
@@ -41,11 +63,14 @@ async function transcribeYoutube(vidId) {
 
 					// sometimes there is repeating lines in the data transcription
 					// a function to remove repeating lines would be nice here
+					// data = removeRepeatedLines(data);
+
+					rawTranscription = removeRepeatedLines(data);
 
 					// aggregate all text into one string
-					rawTranscription = data.reduce((accumerlator, obj) => {
-						return `${accumerlator} ${obj.text}`;
-					}, '')
+					// rawTranscription = data.reduce((accumerlator, obj) => {
+					// 	return `${accumerlator} ${obj.text}`;
+					// }, '')
 
 					// break string into array of tokens
 					let tokens = tokenizer.tokenize(rawTranscription);
