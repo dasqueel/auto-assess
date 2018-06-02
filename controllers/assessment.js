@@ -15,16 +15,16 @@ const sendUserError = (err, res) => {
 };
 
 const getUserAssessments = (req, res) => {
-	const user = req.session.user;
-    Assessment.find({ owner: new ObjectId(user._id) })
-        .then((assessments) => {
-            res.json(assessments);
-        })
-        .catch((err) => {
-            res.status(500).json(err);
-        })
+  const user = req.user;
+	Assessment.find({ owner: new ObjectId(user._id) })
+		.then((assessments) => {
+			res.json(assessments);
+		})
+		.catch((err) => {
+			res.status(500).json(err);
+		})
 }
 
 module.exports = {
-    getUserAssessments
+  getUserAssessments
 };

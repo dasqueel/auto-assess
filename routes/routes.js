@@ -10,12 +10,11 @@ module.exports = (app) => {
 	app.route(`${apiPrefix}/register`)
 		.post(userController.createUser);
 
-	app
-		.route(`${apiPrefix}/signin`)
+	app.route(`${apiPrefix}/signin`)
 		.post(authController.requireSignIn, authController.signIn);
 
 	app.route(`${apiPrefix}/user/assessments`)
-		.get(authController.requireSignIn, assessmentController.getUserAssessments);
+		.get(authController.requireAuth, assessmentController.getUserAssessments);
 
 	app.route(`${apiPrefix}/assess`)
 		.post(authController.requireAuth, youtubeAssessorController.assessVid);
