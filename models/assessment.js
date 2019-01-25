@@ -8,7 +8,8 @@ const AssessmentSchema = new Schema({
 		required: true
 	},
 	question: {
-		type: String,
+		type: Schema.Types.ObjectId,
+		ref: 'Question',
 		required: true
 	},
 	percentageSaidImportant: {

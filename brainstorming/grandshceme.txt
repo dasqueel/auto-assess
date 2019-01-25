@@ -1,0 +1,66 @@
+What does this app do?
+
+I want to answer STEM questions, find them, browse them,select them, and do give screencasts (other mediums too)
+and have them assessed by AI or possibly other people
+
+Value proposition
+
+* have a portfolio of assessed videos people can watch you be smart
+* the videos are assessed to a decent degree which they can be considered valid
+* the added value of archive and assisting in the most efficient way to learn concepts
+
+
+Things I want users to say:
+
+    Employer A "wow user X has answered 55 fundamental questions for my industry and has spent Z minutes in the past 5 months, thats impressive"
+    
+    User B "this site help motivate me and gave me structure to understand STEM"
+
+
+APIs
+
+* Auto-Assess
+    * get all users assessed Videos
+        * have it query-able by:
+            * highest scored
+            * most recent
+            * by category
+            * by question sets
+            * alphabetical
+
+* Questions (gets all available questions that are determined by authority)
+    * get questions
+        * have it query-able by
+            * title
+            * id
+            * category
+            * questionSets
+            * users answered questions
+            * any combination of them
+
+Views
+    wwww.mysite.com/user/someUser
+    * User
+        * a showcase of a users accomplishments
+        * show metrics
+            * number of minutes, videos, topics, greatest strengths
+        * github monthly acitity like graphic
+        * most proud / highest achieved question
+        * most recent question / video done
+
+
+Models
+
+    * Question
+        attributes
+            * text
+            * ui
+
+    * QuestionSet
+
+    * User
+
+    * Assessment
+
+    * Video
+

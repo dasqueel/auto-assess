@@ -10,7 +10,7 @@ const cors = require('cors');
 const passport = require("passport");
 
 const port = process.env.PORT || 3000;
-const server  = express();
+const server = express();
 
 // set up server middleware
 server.use(bodyParser.urlencoded({extended: true}));
