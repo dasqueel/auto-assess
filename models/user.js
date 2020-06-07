@@ -2,6 +2,30 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
+// do we add Questions and Answers array?
+/*
+
+if we a Questions and Answers list
+
+what do you gain from having a Questions and Answers list 
+
+what about indexing?
+
+* typically a user probably wont have more than a 1000 answers
+
+Pros
+	* easier access of getting for GET and UPDATE calls
+
+vs
+
+having a relational reference 
+
+Pros
+	* no redunant persisted fields
+	* if wanting to do analyse of Questions or Answers, you dont have to iterate
+		over user and get all answers
+*/
+
 const UserSchema = new Schema({
 	username: {
 		type: String,
@@ -17,10 +41,15 @@ const UserSchema = new Schema({
 		required: true,
 		unique: true,
 		lowercase: true
-	},
+	}
+	// answers: {
+	// 	type: [Answer],
+	// 	required: true,
+	// 	default: []
+	// }
 })
 
-UserSchema.pre("save", async function(next) {
+UserSchema.pre("save", async function (next) {
 	try {
 		const hash = await bcrypt.hash(this.password, 11);
 		this.password = hash;

@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-// mongoose.connect(process.env.LOCAL_DB_PATH);
-mongoose.connect(process.env.REMOTE_DB_PATH);
+const mongoOptions = { useUnifiedTopology: true, useNewUrlParser: true, autoIndex: false };
+// mongoose.connect("mongodb://localhost:27017/erudite", mongoOptions);
+const mongoUrl = process.env.mongoUrl
+mongoose.connect(mongoUrl, mongoOptions);
 
 const cors = require('cors');
 const passport = require("passport");
@@ -13,7 +15,7 @@ const port = process.env.PORT || 3000;
 const server = express();
 
 // set up server middleware
-server.use(bodyParser.urlencoded({extended: true}));
+server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(cors());
 server.use(passport.initialize());

@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// do we have an Order Attribute that dictaces what order to answer them in?  it would be an int?
+
 const QuestionSetSchema = new Schema({
     title: {
         type: String,
@@ -9,7 +11,12 @@ const QuestionSetSchema = new Schema({
     },
     categories: {
         type: Array,
-        default: [],
+        default: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Category'
+            }
+        ],
         required: true
     },
     questions: {
@@ -18,8 +25,7 @@ const QuestionSetSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Question'
         }],
-        required: true,
-        default: true
+        required: true
     }
 })
 

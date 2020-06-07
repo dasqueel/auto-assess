@@ -136,7 +136,7 @@ const score = async (question, userWords) => {
 		scoreMetrics.percentageSaidAll = percentageSaid;
 		scoreMetrics.validWordsSaid = commonWords;
 
-	}	catch(error) {
+	} catch (error) {
 		// respond with acceptedAssessments mongo read error
 		// return { success: false, error };
 		console.log(error);
@@ -162,7 +162,7 @@ const score = async (question, userWords) => {
 		scoreMetrics.importantWordsSaid = importantWordsSaid;
 		scoreMetrics.percentageSaidImportant = percentageSaidImportant;
 
-	} catch(error) {
+	} catch (error) {
 		// respond with metaInfoAssessment mongo read error
 		// return { success: false, error };
 		console.log(error);
@@ -180,7 +180,7 @@ const assessVid = async (req, res) => {
 	// get the owner from the jwt
 	const owner = req.user._id;
 
-	Assessment.findOne({ 'vidId' : vidId })
+	Assessment.findOne({ 'vidId': vidId })
 		.then(doc => {
 			// check if the video has already been assessed
 			if (doc) return res.send('video already entered!');
