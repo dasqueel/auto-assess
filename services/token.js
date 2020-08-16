@@ -7,6 +7,6 @@ module.exports = user => {
       sub: user.id,
       iat: moment().unix()
     },
-    process.env.secret
+    process.env.eruditeSecret
   );
 };
